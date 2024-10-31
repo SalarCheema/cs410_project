@@ -46,7 +46,9 @@ def political_analysis():
     reddit_call("Republicans", "con", 100, 20)
     reddit_call("Conservative", "con", 100, 20)
     reddit_call("Trump", "con", 100, 20)
+
+
     
 
 political_analysis()
-df.to_csv("political_data.csv")
+df.to_csv("political_data.csv", index=False)
