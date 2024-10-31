@@ -33,6 +33,6 @@ preprocess_text_data(df)
 
 
 filtered_df = df[df['text'].str.split().str.len() > 10]
-print(f"Number of rows after preprocessing: {filtered_df.shape[0]}")
+
 
 #filtered_df.to_csv("pre_processed_data.csv", index=False)
