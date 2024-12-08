@@ -21,18 +21,18 @@ def get_sentence_embedding(sentence):
 
 data['text_vector'] = data['text'].apply(get_sentence_embedding)
 
-# Step 2: Combine Text and Upvote Score Features
+# Combine Text and Upvote Score Features
 X = np.array([np.append(vec, score) for vec, score in zip(data['text_vector'], data['score'])])
-y = data['political_leaning']
+y = data['expected_political_leaning']
 
-# Step 3: Train-Test Split
+# Train-Test Split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Step 4: Train a Classifier
+# Tain a Classifier
 clf = RandomForestClassifier()
 clf.fit(X_train, y_train)
 
-# Step 5: Make Predictions and Evaluate
+# Make Predictions and Evaluate
 y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy:.2f}")
@@ -43,8 +43,8 @@ def predict_paragraph(text, upvote_score):
     features = np.append(text_vector, upvote_score)
     return clf.predict([features])[0]  # 0 for Democrat, 1 for Republican
 
-# Example prediction
-new_text = "New paragraph text to classify"
+# example prediction
+new_text = "Test paragraph to see leaning expected near fifty"
 new_upvote_score = 150
 prediction = predict_paragraph(new_text, new_upvote_score)
 print("Prediction:", "Republican" if prediction == 1 else "Democrat")
