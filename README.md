@@ -1,9 +1,5 @@
 # cs410_project`
 
-Here's a draft for your `README.md` file based on the details you provided:
-
----
-
 # Political Leaning Prediction for Subreddits
 
 ## Overview
